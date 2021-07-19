@@ -1,23 +1,31 @@
 import './css/styles.css';
-import fetchCountries from './partials/fetchCountries.js';
+import Country from './partials/fetchCountries.js';
 import _ from 'lodash';
 import countryListTemplate from './partials/templates/countryList.hbs'
 import countryMarkupTemplate from './partials/templates/countryMarkup.hbs'
 
-const input = document.getElementById('search-box');
-const countryContainer = document.querySelector('country-list');
-const infoContainer = document.querySelector('country-info');
-const DEBOUNCE_DELAY = 300;
-input.addEventListener('input', _.debounce(onInputChange, DEBOUNCE_DELAY));
+const refs = {
+  input: document.getElementById('search-box'),
+  countryContainer: document.querySelector('.country-list'),
+  infoContainer: document.querySelector('.country-info'),
+}
 
+const DEBOUNCE_DELAY = 1000;
+refs.input.addEventListener('input', _.debounce(onInputChange, DEBOUNCE_DELAY));
+
+const newCountry = new Country();
 function onInputChange(e) {
   const inputValue = e.target.value;
-  fetchCountries(inputValue);
-  // renderMarkup();
+  // e.currentTarget.elements.query.value
+  newCountry.fetchCountries(inputValue);
+  const data = newCountry.fetchCountries(inputValue);
+  const countryMarkup = countryMarkupTemplate(data);
+  refs.countryContainer.innerHTML = countryMarkup;
+  console.log(countryMarkup);
+  console.log(data);
 };
 
-function renderMarkup() {
-  // const htmlString = countryMarkupTemplate(fetchCountries(`${inputValue}`));
-  // countryContainer.innerHTML = htmlString;
-}
+// function renderMarkup() {
+  
+// }
 
