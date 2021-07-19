@@ -1,5 +1,5 @@
 export default class Country {
-  // constructor() {}
+  constructor() {}
   fetchCountries(name) {
     // fetch('https://restcountries.eu/rest/v2/all?fields=name;capital;population;flag;languages').then
     return fetch(`https://restcountries.eu/rest/v2/name/${name}`)
@@ -9,7 +9,4 @@ export default class Country {
       })
       .catch(error => console.log(error));
   }
-  
 }
- 
-  

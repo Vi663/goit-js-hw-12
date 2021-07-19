@@ -10,7 +10,7 @@ const refs = {
   infoContainer: document.querySelector('.country-info'),
 }
 
-const DEBOUNCE_DELAY = 1000;
+const DEBOUNCE_DELAY = 300;
 refs.input.addEventListener('input', _.debounce(onInputChange, DEBOUNCE_DELAY));
 
 const newCountry = new Country();
