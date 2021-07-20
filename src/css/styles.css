@@ -17,6 +17,33 @@ body {
   margin-bottom: 16px;
 }
 
-.country_flag {}
-.country_container {}
-.language_container {}
+.country-info
+.country_list {
+  margin: auto;
+  padding: 0px 15px;
+}
+
+.sub-titile_list {
+  list-style: none;
+  padding: 0px;
+}
+
+.country_flag {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.country_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.country_list-item {
+  font-size: 20px;
+  font-weight: bold;
+}
+.languages_list {
+  list-style: none;
+  padding: 0px;
+}
